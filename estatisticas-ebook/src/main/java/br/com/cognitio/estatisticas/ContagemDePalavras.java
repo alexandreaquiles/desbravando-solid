@@ -1,15 +1,16 @@
 package br.com.cognitio.estatisticas;
 
-import java.util.Collection;
+import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
-public class ContagemDePalavras extends TreeMap<String, Integer> {
+public class ContagemDePalavras {
 
-  private static final long serialVersionUID = 1L;
+  private Map<String, Integer> map = new TreeMap<>();
 
   public void adicionaPalavra(String palavra) {
 
-    Integer contagem = get(palavra);
+    Integer contagem = map.get(palavra);
 
     if (contagem != null) {
       contagem++;
@@ -17,23 +18,12 @@ public class ContagemDePalavras extends TreeMap<String, Integer> {
       contagem = 1;
     }
 
-    put(palavra, contagem);
+    map.put(palavra, contagem);
 
   }
 
-  @Override
-  public void clear() {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
-  public Collection<Integer> values() {
-    throw new UnsupportedOperationException();
-  }
-
-  @Override
-  public Integer replace(String key, Integer value) {
-    throw new UnsupportedOperationException();
+  public Set<Map.Entry<String, Integer>> entrySet() {
+    return map.entrySet();
   }
 
 }
