@@ -1,6 +1,7 @@
-package cotuba.epub;
+package cotuba.application;
 
 import cotuba.domain.Ebook;
+import cotuba.epub.GeradorEPUBComEpublib;
 
 public interface GeradorEPUB {
 
