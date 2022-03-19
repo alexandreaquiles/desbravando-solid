@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class GeradorEPUBImpl implements GeradorEPUB {
+public class GeradorEPUBComEpublib implements GeradorEPUB {
 
   @Override
   public void gera(Ebook ebook) {

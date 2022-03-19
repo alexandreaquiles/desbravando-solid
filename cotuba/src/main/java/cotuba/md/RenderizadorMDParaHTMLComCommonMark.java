@@ -16,7 +16,7 @@ import java.nio.file.PathMatcher;
 import java.util.List;
 import java.util.stream.Stream;
 
-public class RenderizadorMDParaHTMLImpl implements RenderizadorMDParaHTML {
+public class RenderizadorMDParaHTMLComCommonMark implements RenderizadorMDParaHTML {
 
   @Override
   public List<Capitulo> renderiza(Path diretorioDosMD) {
