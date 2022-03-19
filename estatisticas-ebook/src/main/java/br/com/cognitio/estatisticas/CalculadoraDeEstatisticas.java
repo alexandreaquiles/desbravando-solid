@@ -21,7 +21,7 @@ public class CalculadoraDeEstatisticas implements Plugin {
   @Override
   public void aposGeracao(Ebook ebook) {
 
-    Map<String, Integer> contagemPalavras = new TreeMap<>();
+    ContagemDePalavras contagemDePalavras = new ContagemDePalavras();
 
     for (Capitulo capitulo : ebook.getCapitulos()) {
 
@@ -43,13 +43,13 @@ public class CalculadoraDeEstatisticas implements Plugin {
       for (String palavra : palavras) {
         String emMaiusculas = palavra.toUpperCase();
 
-        contagemPalavras.put(emMaiusculas, 1);
+        contagemDePalavras.adicionaPalavra(emMaiusculas);
 
       }
 
     }
 
-    for (Map.Entry<String, Integer> contagem : contagemPalavras.entrySet()) {
+    for (Map.Entry<String, Integer> contagem : contagemDePalavras.entrySet()) {
 
       String palavra = contagem.getKey();
 
