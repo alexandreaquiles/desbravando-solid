@@ -1,0 +1,15 @@
+h1 { /* título do capítulo */
+    border-bottom: 1px dashed black;
+    font-size: 3em;
+}
+
+h2 { /* título das seções */
+    border-left: 1px solid black;
+    padding-left: 5px;
+    border-bottom: 1px solid black;
+}
+
+blockquote { /* citações */
+    border: 1px solid black;
+    padding: 5px;
+}
