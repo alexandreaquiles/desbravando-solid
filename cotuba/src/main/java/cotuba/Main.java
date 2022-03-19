@@ -63,59 +63,10 @@ public class Main {
         geradorPDF.gera(diretorioDosMD, arquivoDeSaida);
 
       } else if ("epub".equals(formato)) {
-        var epub = new Book();
 
-        PathMatcher matcher = FileSystems.getDefault().getPathMatcher("glob:**/*.md");
-        try (Stream<Path> arquivosMD = Files.list(diretorioDosMD)) {
-          arquivosMD
-              .filter(matcher::matches)
-              .sorted()
-              .forEach(arquivoMD -> {
-                Parser parser = Parser.builder().build();
-                Node document = null;
-                try {
-                  document = parser.parseReader(Files.newBufferedReader(arquivoMD));
-                  document.accept(new AbstractVisitor() {
-                    @Override
-                    public void visit(Heading heading) {
-                      if (heading.getLevel() == 1) {
-                        // capítulo
-                        String tituloDoCapitulo = ((Text) heading.getFirstChild()).getLiteral();
-                        // TODO: usar título do capítulo
-                      } else if (heading.getLevel() == 2) {
-                        // seção
-                      } else if (heading.getLevel() == 3) {
-                        // título
-                      }
-                    }
+        GeradorEPUB geradorEPUB = new GeradorEPUB();
+        geradorEPUB.gera(diretorioDosMD, arquivoDeSaida);
 
-                  });
-                } catch (Exception ex) {
-                  throw new IllegalStateException("Erro ao fazer parse do arquivo " + arquivoMD, ex);
-                }
-
-                try {
-                  HtmlRenderer renderer = HtmlRenderer.builder().build();
-                  String html = renderer.render(document);
-
-                  // TODO: usar título do capítulo
-                  epub.addSection("Capítulo", new Resource(html.getBytes(), MediatypeService.XHTML));
-
-                } catch (Exception ex) {
-                  throw new IllegalStateException("Erro ao renderizar para HTML o arquivo " + arquivoMD, ex);
-                }
-              });
-        } catch (IOException ex) {
-          throw new IllegalStateException("Erro tentando encontrar arquivos .md em " + diretorioDosMD.toAbsolutePath(), ex);
-        }
-
-        var epubWriter = new EpubWriter();
-
-        try {
-          epubWriter.write(epub, Files.newOutputStream(arquivoDeSaida));
-        } catch (IOException ex) {
-          throw new IllegalStateException("Erro ao criar arquivo EPUB: " + arquivoDeSaida.toAbsolutePath(), ex);
-        }
       } else {
         throw new IllegalArgumentException("Formato do ebook inválido: " + formato);
       }
