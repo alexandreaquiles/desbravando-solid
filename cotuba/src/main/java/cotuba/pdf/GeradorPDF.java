@@ -11,11 +11,14 @@ import com.itextpdf.layout.property.AreaBreakType;
 import cotuba.application.GeradorEbook;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
+import cotuba.domain.FormatoEbook;
+import org.springframework.stereotype.Component;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 
+@Component
 public class GeradorPDF implements GeradorEbook {
 
   @Override
@@ -47,6 +50,11 @@ public class GeradorPDF implements GeradorEbook {
       throw new IllegalStateException("Erro ao criar arquivo PDF: " + arquivoDeSaida.toAbsolutePath(), ex);
     }
 
+  }
+
+  @Override
+  public boolean accept(FormatoEbook formato) {
+    return FormatoEbook.PDF.equals(formato);
   }
 
 }
