@@ -1,5 +1,6 @@
 package br.com.cognitio.estatisticas;
 
+import java.util.Collection;
 import java.util.TreeMap;
 
 public class ContagemDePalavras extends TreeMap<String, Integer> {
@@ -18,6 +19,21 @@ public class ContagemDePalavras extends TreeMap<String, Integer> {
 
     put(palavra, contagem);
 
+  }
+
+  @Override
+  public void clear() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Collection<Integer> values() {
+    throw new UnsupportedOperationException();
+  }
+
+  @Override
+  public Integer replace(String key, Integer value) {
+    throw new UnsupportedOperationException();
   }
 
 }
