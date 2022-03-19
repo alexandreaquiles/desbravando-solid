@@ -9,7 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Comparator;
 
-class LeitorOpcoesCLI {
+public class LeitorOpcoesCLI {
 
   private Path diretorioDosMD;
   private String formato;
