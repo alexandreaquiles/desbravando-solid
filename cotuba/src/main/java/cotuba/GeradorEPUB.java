@@ -11,13 +11,21 @@ import java.nio.file.Path;
 
 public class GeradorEPUB {
 
-  public void gera(Path diretorioDosMD, Path arquivoDeSaida) {
+  public void gera(Ebook ebook) {
+
+    Path arquivoDeSaida = ebook.getArquivoDeSaida();
 
     var epub = new Book();
 
-    // TODO: usar título do capítulo
-    epub.addSection("Capítulo",
-        new Resource(html.getBytes(), MediatypeService.XHTML)); // error: cannot find symbol
+    for (Capitulo capitulo : ebook.getCapitulos()) {
+
+      String html = capitulo.getConteudoHTML();
+
+      // TODO: usar título do capítulo
+      epub.addSection("Capítulo",
+          new Resource(html.getBytes(), MediatypeService.XHTML));
+
+    }
 
     var epubWriter = new EpubWriter();
 
