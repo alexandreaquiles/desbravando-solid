@@ -1,6 +1,5 @@
 package cotuba.application;
 
-import cotuba.cli.LeitorOpcoesCLI;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
@@ -9,7 +8,7 @@ import java.util.List;
 
 public class Cotuba {
 
-  public void executa(LeitorOpcoesCLI parametros) {
+  public void executa(ParametrosCotuba parametros) {
 
     String formato = parametros.getFormato();
     Path diretorioDosMD = parametros.getDiretorioDosMD();
