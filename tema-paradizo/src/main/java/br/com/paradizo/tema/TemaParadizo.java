@@ -1,21 +1,15 @@
 package br.com.paradizo.tema;
 
-import cotuba.domain.Ebook;
-import cotuba.plugin.Plugin;
+import cotuba.plugin.AoRenderizarHTML;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-public class TemaParadizo implements Plugin {
+public class TemaParadizo implements AoRenderizarHTML {
 
   @Override
   public String aposRenderizacao(String html) {
     String htmlComTema = aplicaTema(html);
     return htmlComTema;
-  }
-
-  @Override
-  public void aposGeracao(Ebook ebook) {
-
   }
 
   private String aplicaTema(String html) {
