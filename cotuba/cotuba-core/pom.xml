@@ -55,15 +55,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>html2pdf</artifactId>
-            <version>2.0.0</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.itextpdf</groupId>
-                    <artifactId>forms</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>cotuba</groupId>
+            <artifactId>cotuba-pdf</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
     </dependencies>
@@ -73,12 +67,6 @@
         <repository>
             <id>psiegman-repo</id>
             <url>https://github.com/psiegman/mvn-repo/raw/master/releases</url>
-        </repository>
-
-        <repository>
-            <id>iText Repository</id>
-            <name>iText Repository-releases</name>
-            <url>https://repo.itextsupport.com/releases</url>
         </repository>
 
         <repository>
