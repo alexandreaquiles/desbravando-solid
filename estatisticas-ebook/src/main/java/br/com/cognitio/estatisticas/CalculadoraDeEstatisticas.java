@@ -2,21 +2,14 @@ package br.com.cognitio.estatisticas;
 
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
-import cotuba.plugin.Plugin;
-
+import cotuba.plugin.AoFinalizarGeracao;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.text.Normalizer;
 import java.util.Map;
-import java.util.TreeMap;
 
-public class CalculadoraDeEstatisticas implements Plugin {
-
-  @Override
-  public String aposRenderizacao(String html) {
-    return html;
-  }
+public class CalculadoraDeEstatisticas implements AoFinalizarGeracao {
 
   @Override
   public void aposGeracao(Ebook ebook) {

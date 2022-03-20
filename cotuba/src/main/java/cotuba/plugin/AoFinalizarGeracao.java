@@ -4,12 +4,12 @@ import cotuba.domain.Ebook;
 
 import java.util.ServiceLoader;
 
-public interface Plugin {
+public interface AoFinalizarGeracao {
 
   void aposGeracao(Ebook ebook);
 
   static void gerou(Ebook ebook) {
-    ServiceLoader.load(Plugin.class)
+    ServiceLoader.load(AoFinalizarGeracao.class)
         .forEach(plugin -> plugin.aposGeracao(ebook));
   }
 
