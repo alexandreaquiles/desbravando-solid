@@ -23,8 +23,8 @@ public class GeradorEPUB {
 
       String html = capitulo.getConteudoHTML();
 
-      // TODO: usar título do capítulo
-      epub.addSection("Capítulo",
+      String tituloDoCapitulo = capitulo.getTitulo();
+      epub.addSection(tituloDoCapitulo,
           new Resource(html.getBytes(), MediatypeService.XHTML));
 
     }
