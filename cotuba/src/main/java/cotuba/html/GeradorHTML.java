@@ -15,13 +15,13 @@ public class GeradorHTML implements GeradorEbook {
   @Override
   public void gera(Ebook ebook) {
 
-    Path arquivoDeSaida = ebook.getArquivoDeSaida();
+    Path arquivoDeSaida = ebook.arquivoDeSaida();
     try {
 
       Path diretorioDoHTML = Files.createDirectory(arquivoDeSaida);
 
       int i = 1;
-      for (Capitulo capitulo : ebook.getCapitulos()) {
+      for (Capitulo capitulo : ebook.capitulos()) {
         String nomeDoArquivoHTMLDoCapitulo = obtemNomeDoArquivoHTMLDoCapitulo(i, capitulo);
 
         Path arquivoHTMLDoCapitulo = diretorioDoHTML.resolve(nomeDoArquivoHTMLDoCapitulo);
@@ -36,7 +36,7 @@ public class GeradorHTML implements GeradorEbook {
                 %s
               </body>
             </html>
-            """.formatted(capitulo.getTitulo(), capitulo.getConteudoHTML());
+            """.formatted(capitulo.titulo(), capitulo.conteudoHTML());
         Files.writeString(arquivoHTMLDoCapitulo, html, StandardCharsets.UTF_8);
 
         i++;
@@ -50,7 +50,7 @@ public class GeradorHTML implements GeradorEbook {
 
   private String obtemNomeDoArquivoHTMLDoCapitulo(int i, Capitulo capitulo) {
     String nomeArquivoHTMLCapitulo = i + "-"
-        + removeAcentos(capitulo.getTitulo().toLowerCase())
+        + removeAcentos(capitulo.titulo().toLowerCase())
         .replaceAll("[^\\w]", "")
         + ".html";
     return nomeArquivoHTMLCapitulo;

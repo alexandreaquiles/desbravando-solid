@@ -16,9 +16,9 @@ public class CalculadoraDeEstatisticas implements AoFinalizarGeracao {
 
     ContagemDePalavras contagemDePalavras = new ContagemDePalavras();
 
-    for (Capitulo capitulo : ebook.getCapitulos()) {
+    for (Capitulo capitulo : ebook.capitulos()) {
 
-      String html = capitulo.getConteudoHTML();
+      String html = capitulo.conteudoHTML();
 
       Document doc = Jsoup.parse(html);
 
