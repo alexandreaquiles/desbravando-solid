@@ -54,12 +54,6 @@
             </exclusions>
         </dependency>
 
-        <dependency>
-            <groupId>cotuba</groupId>
-            <artifactId>cotuba-pdf</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
     </dependencies>
 
     <repositories>

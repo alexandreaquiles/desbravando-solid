@@ -1,6 +1,7 @@
 package cotuba.html;
 
-import cotuba.application.GeradorEbook;
+import cotuba.domain.FormatoEbook;
+import cotuba.plugin.GeradorEbook;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
@@ -11,6 +12,11 @@ import java.nio.file.Path;
 import java.text.Normalizer;
 
 public class GeradorHTML implements GeradorEbook {
+
+  @Override
+  public FormatoEbook formato() {
+    return FormatoEbook.HTML;
+  }
 
   @Override
   public void gera(Ebook ebook) {
