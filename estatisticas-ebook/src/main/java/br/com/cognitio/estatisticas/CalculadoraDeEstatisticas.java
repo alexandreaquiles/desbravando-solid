@@ -1,8 +1,8 @@
 package br.com.cognitio.estatisticas;
 
-import cotuba.domain.Capitulo;
-import cotuba.domain.Ebook;
 import cotuba.plugin.AoFinalizarGeracao;
+import cotuba.plugin.CapituloSoParaLeitura;
+import cotuba.plugin.EbookSoParaLeitura;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -12,11 +12,11 @@ import java.util.Map;
 public class CalculadoraDeEstatisticas implements AoFinalizarGeracao {
 
   @Override
-  public void aposGeracao(Ebook ebook) {
+  public void aposGeracao(EbookSoParaLeitura ebook) {
 
     ContagemDePalavras contagemDePalavras = new ContagemDePalavras();
 
-    for (Capitulo capitulo : ebook.getCapitulos()) {
+    for (CapituloSoParaLeitura capitulo : ebook.getCapitulos()) {
 
       String html = capitulo.getConteudoHTML();
 
