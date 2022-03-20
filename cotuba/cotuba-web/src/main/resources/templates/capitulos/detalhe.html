@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head th:replace="base :: common_header(~{::title},~{::link})">
+    <title>Detalhes do capítulo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <p th:text="${livro.titulo}" class="text-center lead">Um Livro</p>
+    <h1 th:text="${capitulo.nome}" class="text-center">Um Capítulo</h1>
+</div>
+
+<div class="container">
+
+    <form method="post">
+
+        <input type="hidden" name="ordem" th:value="${capitulo.ordem}">
+
+        <a th:href="@{'/livros/'+${livro.id}}" href="../livros/detalhe.html" class="btn btn-secondary mb-2">Voltar</a>
+        <button class="btn btn-primary mb-2">Salvar</button>
+
+        <div class="form-group">
+            <label for="nome-do-capitulo">Nome:</label>
+            <input id="nome-do-capitulo" name="nome" th:value="${capitulo.nome}" class="form-control">
+        </div>
+
+        <div class="form-group">
+            <label for="texto-do-capitulo">Texto do Capítulo:</label>
+            <textarea id="texto-do-capitulo" name="markdown" th:text="${capitulo.markdown}"></textarea>
+        </div>
+
+    </form>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>
+    new SimpleMDE({
+        element: document.getElementById("texto-do-capitulo"),
+        spellChecker: false,
+    });
+</script>
+
+</body>
+
+</html>

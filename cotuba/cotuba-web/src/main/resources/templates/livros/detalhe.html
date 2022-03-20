@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head th:replace="base :: common_header(~{::title},~{})">
+    <title>Detalhes do Livro</title>
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <h1 th:text="${livro.titulo}" class="text-center">Um Livro</h1>
+</div>
+
+<div class="container">
+
+    <a th:href="@{'/livros/'+${livro.id}+'/pdf'}" class="btn btn-info float-right ml-2">Gerar PDF</a>
+    <a th:href="@{'/livros/'+${livro.id}+'/epub'}" class="btn btn-info float-right mb-5">Gerar EPUB</a>
+
+    <table class="table table-hover">
+
+        <thead>
+
+        <tr>
+            <th>Ordem</th>
+            <th>Nome</th>
+            <th></th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="capitulo : ${capitulos}">
+            <td th:text="${capitulo.ordem}">1</td>
+            <td th:text="${capitulo.nome}">Primeiro Capítulo</td>
+            <td><a th:href="@{'/livros/'+${livro.id}+'/capitulos/'+${capitulo.id}}" href="capitulos/detalhe.html"
+                   class="btn btn-secondary">Editar</a></td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

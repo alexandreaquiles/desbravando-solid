@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-br">
+
+<head th:replace="base :: common_header(~{::title},~{})">
+    <title>Livros cadastrados</title>
+</head>
+
+<body>
+
+<div class="jumbotron">
+    <h1 class="text-center">Cotuba Web</h1>
+</div>
+
+<div class="container">
+
+    <h2 class="text-center mb-5">Livros Cadastrados</h2>
+
+    <table class="table table-hover">
+
+        <thead>
+
+        <tr>
+            <th>Id</th>
+            <th>Título</th>
+            <th></th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr th:each="livro : ${livros}">
+            <td th:text="${livro.id}">1</td>
+            <td th:text="${livro.titulo}">Um Livro</td>
+            <td><a th:href="@{'/livros/'+${livro.id}}" href="detalhe.html" class="btn btn-secondary">Detalhes</a></td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

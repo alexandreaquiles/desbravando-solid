@@ -21,6 +21,7 @@
         <module>cotuba-pdf</module>
         <module>cotuba-epub</module>
         <module>cotuba-html</module>
+        <module>cotuba-web</module>
     </modules>
 
     <build>
