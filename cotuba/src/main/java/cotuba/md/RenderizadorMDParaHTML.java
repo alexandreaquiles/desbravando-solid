@@ -78,9 +78,8 @@ public class RenderizadorMDParaHTML {
       HtmlRenderer renderer = HtmlRenderer.builder().build();
       String html = renderer.render(document);
 
-      capitulo.setConteudoHTML(html);
-
-      AoRenderizarHTML.renderizou(capitulo);
+      String htmlModificado = AoRenderizarHTML.renderizou(html);
+      capitulo.setConteudoHTML(htmlModificado);
 
     } catch (Exception ex) {
       throw new IllegalStateException("Erro ao renderizar para HTML o arquivo " + arquivoMD, ex);

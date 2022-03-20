@@ -3,38 +3,33 @@ package cotuba.domain;
 import cotuba.plugin.EbookSoParaLeitura;
 
 import java.nio.file.Path;
+import java.util.Collections;
 import java.util.List;
 
-public class Ebook implements EbookSoParaLeitura {
+public final class Ebook implements EbookSoParaLeitura {
 
-  private FormatoEbook formato;
+  private final FormatoEbook formato;
 
-  private Path arquivoDeSaida;
+  private final Path arquivoDeSaida;
 
-  private List<Capitulo> capitulos;
+  private final List<Capitulo> capitulos;
+
+  public Ebook(FormatoEbook formato, Path arquivoDeSaida, List<Capitulo> capitulos) {
+    this.formato = formato;
+    this.arquivoDeSaida = arquivoDeSaida;
+    this.capitulos = Collections.unmodifiableList(capitulos);
+  }
 
   public FormatoEbook getFormato() {
     return formato;
-  }
-
-  public void setFormato(FormatoEbook formato) {
-    this.formato = formato;
   }
 
   public Path getArquivoDeSaida() {
     return arquivoDeSaida;
   }
 
-  public void setArquivoDeSaida(Path arquivoDeSaida) {
-    this.arquivoDeSaida = arquivoDeSaida;
-  }
-
   public List<Capitulo> getCapitulos() {
     return capitulos;
-  }
-
-  public void setCapitulos(List<Capitulo> capitulos) {
-    this.capitulos = capitulos;
   }
 
   public boolean isUltimoCapitulo(Capitulo capitulo) {
