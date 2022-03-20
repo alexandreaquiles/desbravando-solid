@@ -1,8 +1,6 @@
 package cotuba.domain;
 
-import cotuba.plugin.CapituloSoParaLeitura;
-
-public final class Capitulo implements CapituloSoParaLeitura {
+public final class Capitulo {
 
   private final String titulo;
 

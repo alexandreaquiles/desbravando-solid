@@ -1,12 +1,10 @@
 package cotuba.domain;
 
-import cotuba.plugin.EbookSoParaLeitura;
-
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
 
-public final class Ebook implements EbookSoParaLeitura {
+public final class Ebook {
 
   private final FormatoEbook formato;
 
