@@ -1,9 +1,9 @@
 package cotuba.html;
 
-import cotuba.domain.FormatoEbook;
-import cotuba.plugin.GeradorEbook;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
+import cotuba.domain.FormatoEbook;
+import cotuba.plugin.GeradorEbook;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

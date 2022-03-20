@@ -25,6 +25,24 @@
             <version>${project.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>cotuba</groupId>
+            <artifactId>cotuba-pdf</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cotuba</groupId>
+            <artifactId>cotuba-epub</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cotuba</groupId>
+            <artifactId>cotuba-html</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
