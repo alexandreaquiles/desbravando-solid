@@ -1,4 +1,4 @@
-module cotuba.web {
+open module cotuba.web {
   requires cotuba.core;
 
   requires java.persistence;
@@ -13,4 +13,8 @@ module cotuba.web {
   requires spring.boot.autoconfigure;
 
   requires org.apache.tomcat.embed.core;
+
+  requires spring.core;
+  requires spring.beans;
+  requires org.hibernate.orm.core;
 }
