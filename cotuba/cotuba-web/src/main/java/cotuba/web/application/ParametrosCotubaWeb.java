@@ -1,20 +1,28 @@
 package cotuba.web.application;
 
+import cotuba.application.ParametrosCotuba;
+import cotuba.application.RepositorioDeMDs;
+import cotuba.domain.FormatoEbook;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import cotuba.domain.FormatoEbook;
-import cotuba.application.ParametrosCotuba;
 
 public class ParametrosCotubaWeb implements ParametrosCotuba {
 
   private final FormatoEbook formato;
   private final Path arquivoDeSaida;
+  private final MDsDoBancoDeDados mDsDoBancoDeDados;
 
-  public ParametrosCotubaWeb(FormatoEbook formato) {
+  public ParametrosCotubaWeb(FormatoEbook formato, MDsDoBancoDeDados mDsDoBancoDeDados) {
     this.formato = formato;
     this.arquivoDeSaida = criaArquivoTemporario();
+    this.mDsDoBancoDeDados = mDsDoBancoDeDados;
+  }
+
+  @Override
+  public RepositorioDeMDs getRepositorioDeMDs() {
+    return mDsDoBancoDeDados;
   }
 
   @Override
@@ -25,10 +33,6 @@ public class ParametrosCotubaWeb implements ParametrosCotuba {
   @Override
   public Path getArquivoDeSaida() {
     return arquivoDeSaida;
-  }
-
-  @Override
-  public Path getDiretorioDosMD() {
   }
 
   private Path criaArquivoTemporario() {

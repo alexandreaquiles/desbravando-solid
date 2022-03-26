@@ -13,9 +13,13 @@ import java.util.List;
 public class GeracaoDeLivros {
 
   public Path geraLivro(List<Capitulo> capitulos, FormatoEbook formato) {
+    MDsDoBancoDeDados mDsDoBancoDeDados = new MDsDoBancoDeDados(capitulos);
+
     Cotuba cotuba = new Cotuba();
-    ParametrosCotuba parametros = // o que colocar aqui???
+    ParametrosCotuba parametros = new ParametrosCotubaWeb(formato, mDsDoBancoDeDados);
     cotuba.executa(parametros);
+
+    return parametros.getArquivoDeSaida();
   }
 
 }
