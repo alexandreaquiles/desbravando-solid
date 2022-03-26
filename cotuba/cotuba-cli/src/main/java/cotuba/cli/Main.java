@@ -3,6 +3,8 @@ package cotuba.cli;
 import cotuba.application.Cotuba;
 import cotuba.domain.builder.CapituloBuilder;
 import cotuba.md.RenderizadorMDParaHTML;
+import org.commonmark.parser.Parser;
+import org.commonmark.renderer.html.HtmlRenderer;
 
 import java.nio.file.Path;
 
@@ -15,6 +17,12 @@ public class Main {
 
     RenderizadorMDParaHTML md = new RenderizadorMDParaHTML();  // eita!
     System.out.println(md);
+
+    Parser parser = new Parser.Builder().build(); // nossa!
+    System.out.println(parser);
+
+    HtmlRenderer htmlRenderer = new HtmlRenderer.Builder().build(); // vixe!
+    System.out.println(htmlRenderer);
 
     Path arquivoDeSaida;
     boolean modoVerboso = false;
