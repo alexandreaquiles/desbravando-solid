@@ -13,7 +13,6 @@ import cotuba.plugin.GeradorEbook;
 import cotuba.domain.Capitulo;
 import cotuba.domain.Ebook;
 
-import java.lang.reflect.InvocationTargetException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
@@ -27,24 +26,6 @@ public class GeradorPDF implements GeradorEbook {
 
   @Override
   public void gera(Ebook ebook) {
-
-    try {
-
-      // puxa!
-      Class mainClass = Class.forName("cotuba.cli.Main");
-      Object main = mainClass.getDeclaredConstructor().newInstance();
-      System.out.println(main);
-
-      // caramba!
-      Class optionsClass = Class.forName("org.apache.commons.cli.Options");
-      Object options = optionsClass.getDeclaredConstructor().newInstance();
-      System.out.println(options);
-
-    } catch (ClassNotFoundException | InstantiationException|
-        IllegalAccessException | NoSuchMethodException |
-        InvocationTargetException ex) {
-      throw new IllegalStateException(ex);
-    }
 
     Path arquivoDeSaida = ebook.arquivoDeSaida();
 
