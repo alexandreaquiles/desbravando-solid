@@ -1,3 +1,5 @@
+import cotuba.pdf.GeradorPDF;
+
 module cotuba.pdf {
   exports cotuba.pdf;
   requires cotuba.core;
@@ -6,4 +8,6 @@ module cotuba.pdf {
   requires io;
   requires kernel;
   requires layout;
+
+  provides cotuba.plugin.GeradorEbook with GeradorPDF;
 }
