@@ -1,0 +1,4 @@
+*.epub
+*.pdf
+/libs
+./cotuba.sh
